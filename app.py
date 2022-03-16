@@ -1,12 +1,14 @@
 from flask import Flask, jsonify,render_template
 from sqlalchemy import create_engine
 import pandas as pd
+import os
+database_url = os.environ.get('DATABASE_URL')
 
 app = Flask(__name__)
 
-engine = create_engine('postgresql://postgres:admin@localhost:5432/postgres')
+engine = create_engine(database_url)
 
-results = engine.execute("""SELECT * FROM public.\"TEST_DATA\" """).fetchall()
+results = engine.execute("""SELECT * FROM public.data""").fetchall()
 
 new = []
 for i in results:
