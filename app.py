@@ -2,7 +2,7 @@ from flask import Flask, jsonify,render_template
 from sqlalchemy import create_engine
 import pandas as pd
 import os
-database_url = os.environ.get('DATABASE_URL')
+database_url = os.environ.get('DATABASE_URL1')
 
 app = Flask(__name__)
 
